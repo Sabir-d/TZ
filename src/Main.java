@@ -18,30 +18,30 @@ public class Main {
         int operand1=0;
         int operand2=0;
         int answer=0;
-        String answerr="";
+        String answerString="";
 
         String answerRoman = "";
         boolean roman =false;
         String [] primer1= primer.split(" ");
         if (primer1.length!=3) {
-            return answerr= "throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *) через пробел";
+            return answerString= "throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *) через пробел";
 
         }
         try {
             operand1 = Integer.parseInt(primer1[0]);
             if( operand1<0 || operand1>10)
             {
-                return answerr= "throws Exception //т.к. операнд 1 не входит в промежуток 1-10";
+                return answerString= "throws Exception //т.к. операнд 1 не входит в промежуток 1-10";
             }
             try {
                 operand2 = Integer.parseInt(primer1[2]);
                 if (operand2 < 0 || operand2 > 10) {
-                    return  answerr = "throws Exception //т.к. операнд 2 не входит в промежуток 1-10";
+                    return  answerString = "throws Exception //т.к. операнд 2 не входит в промежуток 1-10";
 
                 }
             }
             catch (Exception e)
-            {return answerr= "throws Exception //т.к. используются одновременно разные системы счисления";}
+            {return answerString= "throws Exception //т.к. используются одновременно разные системы счисления";}
         }
         catch (Exception e)
         {try {
@@ -52,7 +52,7 @@ public class Main {
             roman=true;
         }
         catch (IllegalArgumentException d)
-        { return answerr= "throws Exception //т.к. используются одновременно разные системы счисления";}
+        { return answerString= "throws Exception //т.к. используются одновременно разные системы счисления";}
 
         }
 
@@ -71,14 +71,14 @@ public class Main {
                 answer = operand1 / operand2;
                 break;
             default:
-            return     answerr= "throws Exception //т.к. используется оператор, не подходящий в тз";
+            return     answerString= "throws Exception //т.к. используется оператор, не подходящий в тз";
 
         }
         if(roman)
         {
             if (answer<=0)
             {
-                return     answerr="throws Exception //т.к. римская цифра не может быть меньше или равна 0";
+                return     answerString="throws Exception //т.к. римская цифра не может быть меньше или равна 0";
             }
             int units = answer%10;
             int tens = (answer%100)/10;
